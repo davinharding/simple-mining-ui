@@ -31,15 +31,13 @@ class TopMiners extends Component {
 
         let miners = await axios.get('https://api.nanopool.org/v1/eth/pool/topminers');
         miners =  miners.data.data
-        console.log(miners)
         this.setState({miners})  
 
     }  
     
 
     render() {
-
-  return (
+      return (
         <Paper id="main" >
         <h2>Top Miners</h2>
         <Table >
