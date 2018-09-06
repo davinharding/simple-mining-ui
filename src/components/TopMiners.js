@@ -56,8 +56,8 @@ class TopMiners extends Component {
                                     <TableRow>
                                         <TableCell></TableCell>
                                         <TableCell>{miner.address}</TableCell>
-                                        <TableCell>{miner.hashrate}</TableCell>
-                                    </TableRow>
+                                        <TableCell>{miner.hashrate} Mh/s</TableCell>
+                                    </TableRow>                 
                             )
                         })
                         }

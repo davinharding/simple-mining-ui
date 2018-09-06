@@ -32,13 +32,9 @@ const styles = theme => ({
     
     async handleSubmit(event) {
       event.preventDefault();
-      console.log(this.state.value)
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
-        // address = address.data.data.avgHashrate.h6;
           address = address.data.data
         this.setState({address}); 
-        // console.log(address)
-        console.log(this.state.address);
     }
 
     handleChange(event) {
@@ -46,7 +42,6 @@ const styles = theme => ({
     }
 
     render() {
-        console.log('hello', this.state.address.avgHashrate.h6);
         return (
           <div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
