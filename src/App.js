@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TopMiners from './components/TopMiners';
 import SearchBar from './components/SearchBar';
+import MiningMenu from './components/MiningMenu';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="App">
         <div>Crypto Dashboard</div>
         <SearchBar />
+        <MiningMenu />
         <TopMiners />
       </div>
     );
