@@ -24,7 +24,7 @@ const styles = theme => ({
     constructor() {
       super();
       this.state = {
-        address: {avgHashrate: {h6: null}}
+        address: {balance: 0, avgHashrate: {h6: null}}
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);

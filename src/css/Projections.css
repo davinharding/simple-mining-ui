@@ -5,11 +5,10 @@
 
 #projections ul{
     display: inline-block;
-    width: 110px;
+    /* width: 110px; */
 }
 
 ul li{
-    width: 120px;
     margin: auto;
     display: line;
     list-style-type: none;
