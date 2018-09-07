@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import Paper from '@material-ui/core/Paper';
 
 class CurrentHashrate extends Component {
     constructor(props) {
@@ -8,7 +6,9 @@ class CurrentHashrate extends Component {
     }
     render() {
         return (
-            <div>{this.props.getHashrate} Mh/s</div>
+            <div>
+              {this.props.getHashrate} Mh/s
+            </div>
         )
     }
 }
