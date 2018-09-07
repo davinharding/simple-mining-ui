@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
+import LoadingWheel from './components/LoadingWheel';
+import SearchBar from './components/SearchBar';
 
 
 const styles = theme => ({
@@ -21,14 +23,15 @@ const styles = theme => ({
     },
   });
 
-  
+
 
   class App extends Component {
     constructor() {
       super();
       this.state = {
         address: {avgHashrate: {h6: null}},
-        address2: [{amount: null}]
+        address2: [{amount: null}],
+        loading: false
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,26 +43,26 @@ const styles = theme => ({
         return total
     }
     }
-    
+
     async handleSubmit(event) {
       event.preventDefault();
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
           address = address.data.data;
-        this.setState({address}); 
+        this.setState({address});
       let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${this.state.value}`);
           address2 = address2.data.data;
         this.setState({address2});
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
         projection = projection.data.data;
         this.setState({projection});
-        // console.log(projection)
-    }
+      }
 
     handleChange(event) {
       this.setState({value: event.target.value});
     }
 
-    render() {     
+    render() {
+      const { address, loading } = this.state;
         return (
           <div>
             <div>Crypto Dashboard</div>
@@ -73,17 +76,18 @@ const styles = theme => ({
                         value={this.state.value}
                         onChange={this.handleChange}
                       />
-            </form>
-            <MiningMenu 
-              getHashrate={this.state.address.avgHashrate.h6} 
-              getPoolBalance={this.state.address.balance} 
-              getGlobalEarnings={this.state.address2.sum()} 
-              // getProjections={this.state.projection} 
-            /> 
+                    {loading ? <LoadingWheel type="Puff" color="#00BFFF" height="100" width="100" /> : <SearchBar results={address} />}
+              </form>
+            <MiningMenu
+              getHashrate={this.state.address.avgHashrate.h6}
+              getPoolBalance={this.state.address.balance}
+              getGlobalEarnings={this.state.address2.sum()}
+              // getProjections={this.state.projection}
+            />
             <TopMiners />
           </div>
         )}}
 
 
-  
+
   export default withStyles(styles)(App);
