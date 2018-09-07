@@ -28,8 +28,13 @@ const styles = theme => ({
       super();
       this.state = {
         address: {avgHashrate: {h6: null}},
-        address2: [{amount: null}]
-      };
+        address2: [{amount: null}],
+        projection: {
+          hour: {dollars: null, coins: null},
+          day: {dollars: null, coins: null},
+          week: {dollars: null, coins: null},
+          month: {dollars: null, coins: null}
+      }};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       Array.prototype.sum = function () {
@@ -52,7 +57,6 @@ const styles = theme => ({
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
         projection = projection.data.data;
         this.setState({projection});
-        // console.log(projection)
     }
 
     handleChange(event) {
@@ -78,7 +82,13 @@ const styles = theme => ({
               getHashrate={this.state.address.avgHashrate.h6} 
               getPoolBalance={this.state.address.balance} 
               getGlobalEarnings={this.state.address2.sum()} 
-              // getProjections={this.state.projection} 
+              getHourUsd={this.state.projection.hour.dollars}getHourEth={this.state.projection.hour.coins}
+              getDayUsd={this.state.projection.day.dollars}
+              getDayEth={this.state.projection.day.coins}
+              getWeekUsd={this.state.projection.week.dollars}
+              getWeekEth={this.state.projection.week.coins}
+              getMonthUsd={this.state.projection.month.dollars}
+              getMonthEth={this.state.projection.month.coins}
             /> 
             <TopMiners />
           </div>
