@@ -69,7 +69,6 @@ class TopMiners extends Component {
                     }
             </TableBody>
         </Table>
-        <CurrentHashrate/>
         </Paper>
   );
 }
