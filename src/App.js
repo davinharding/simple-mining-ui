@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
+import './css/App.css'
 
 
 const styles = theme => ({
@@ -27,14 +28,17 @@ const styles = theme => ({
     constructor() {
       super();
       this.state = {
-        address: {avgHashrate: {h6: 0}},
+        address: {balance: 0, avgHashrate: {h6: 0}},
         address2: [{amount: 0}],
         projection: {
           hour: {dollars: 0, coins: 0},
           day: {dollars: 0, coins: 0},
           week: {dollars: 0, coins: 0},
           month: {dollars: 0, coins: 0}
-      }};
+          },
+        tabDisplay: "none"
+    
+    };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       Array.prototype.sum = function () {
@@ -43,7 +47,7 @@ const styles = theme => ({
             total += this[i].amount
         }
         return total
-    }
+      }
     }
     
     async handleSubmit(event) {
@@ -57,8 +61,11 @@ const styles = theme => ({
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
         projection = projection.data.data;
         this.setState({projection});
+        let display;
+        this.setState({tabDisplay: 'show'})
+        console.log(address)
     }
-
+    
     handleChange(event) {
       this.setState({value: event.target.value});
     }
@@ -66,6 +73,7 @@ const styles = theme => ({
     render() {     
         return (
           <div>
+            {console.log(this.state.tabDisplay)}
             <div className="center">
             <div className="center">Crypto Dashboard</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
@@ -80,6 +88,8 @@ const styles = theme => ({
                       />
             </form>
             <MiningMenu 
+              className="hidden"
+              display={this.state.tabDisplay}
               getHashrate={this.state.address.avgHashrate.h6} 
               getPoolBalance={this.state.address.balance} 
               getGlobalEarnings={this.state.address2.sum()} 

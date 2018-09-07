@@ -7,7 +7,7 @@ class PoolBalance extends Component {
     render() {
         return (
             <div>
-                {this.props.getPoolBalance} ETH
+                {Number(this.props.getPoolBalance).toFixed(2)} ETH
             </div>
         )
     }

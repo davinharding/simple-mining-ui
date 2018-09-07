@@ -10,6 +10,7 @@ import CurrentHashrate from './CurrentHashrate';
 import PoolBalance from './PoolBalance';
 import Projections from './Projections';
 import GlobalEarnings from './GlobalEarnings'
+import '../css/MiningMenu.css';
 
 
 function TabContainer({ children, dir }) {
@@ -36,7 +37,8 @@ class MiningMenu extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            value: 0
+            value: 0,
+            displayMenu: this.props.display
         }
     }
 
@@ -52,6 +54,7 @@ class MiningMenu extends Component {
     const { classes, theme } = this.props;
 
     return (
+      <div className="menu" >
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
@@ -94,6 +97,7 @@ class MiningMenu extends Component {
              />
           </TabContainer>
         </SwipeableViews>
+      </div>
       </div>
     );
   }
