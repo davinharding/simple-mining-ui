@@ -66,7 +66,8 @@ const styles = theme => ({
     render() {     
         return (
           <div>
-            <div>Crypto Dashboard</div>
+            <div className="center">
+            <div className="center">Crypto Dashboard</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
@@ -90,6 +91,7 @@ const styles = theme => ({
               getMonthUsd={this.state.projection.month.dollars}
               getMonthEth={this.state.projection.month.coins}
             /> 
+            </div>
             <TopMiners />
           </div>
         )}}
