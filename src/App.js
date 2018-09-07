@@ -61,8 +61,9 @@ const styles = theme => ({
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
         projection = projection.data.data;
         this.setState({projection});
-        let display;
-        this.setState({tabDisplay: 'show'})
+        let tabDisplay;
+        this.setState({tabDisplay: 'flex'})
+        console.log(this.state.tabDisplay)
         console.log(address)
     }
     
@@ -75,7 +76,7 @@ const styles = theme => ({
           <div>
             {console.log(this.state.tabDisplay)}
             <div className="center">
-            <div className="center">Crypto Dashboard</div>
+            <div className="center">Mining Dashboard</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
@@ -105,7 +106,5 @@ const styles = theme => ({
             <TopMiners />
           </div>
         )}}
-
-
   
   export default withStyles(styles)(App);
