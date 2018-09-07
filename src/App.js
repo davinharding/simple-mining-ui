@@ -27,13 +27,13 @@ const styles = theme => ({
     constructor() {
       super();
       this.state = {
-        address: {avgHashrate: {h6: null}},
-        address2: [{amount: null}],
+        address: {avgHashrate: {h6: 0}},
+        address2: [{amount: 0}],
         projection: {
-          hour: {dollars: null, coins: null},
-          day: {dollars: null, coins: null},
-          week: {dollars: null, coins: null},
-          month: {dollars: null, coins: null}
+          hour: {dollars: 0, coins: 0},
+          day: {dollars: 0, coins: 0},
+          week: {dollars: 0, coins: 0},
+          month: {dollars: 0, coins: 0}
       }};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
