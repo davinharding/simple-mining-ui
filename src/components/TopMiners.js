@@ -51,16 +51,22 @@ class TopMiners extends Component {
             </TableHead>
             <TableBody>
                     {
-                        this.state.miners.map((miner) => {
-                            return (
-                                    <TableRow>
-                                        <TableCell></TableCell>
+                        this.state.miners.map((miner, i) => {
+                            function clicked(){
+                                console.log(miner.address);
+                                const minerAddress = miner.address; 
+                            }    
+                            i++;
+                            return (   
+                                    <TableRow id="row" >   
+                                        <TableCell>{i}</TableCell> 
                                         <TableCell>{miner.address}</TableCell>
-                                        <TableCell>{miner.hashrate} Mh/s</TableCell>
-                                    </TableRow>                 
+                                        <TableCell>{miner.hashrate}</TableCell>
+                                    </TableRow>               
+
                             )
                         })
-                        }
+                    }
             </TableBody>
         </Table>
         <CurrentHashrate/>
