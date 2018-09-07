@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../css/Projections.css';
 
 class Projections extends Component {
     constructor(props) {
@@ -6,12 +7,21 @@ class Projections extends Component {
     }
     render() {
         return (
-            <ul>
-                <li>{this.props.getHourUsd} USD/hour {this.props.getHourEth} ETH/hour</li>
-                <li>{this.props.getDayUsd} USD/day {this.props.getDayEth} ETH/day</li>
-                <li>{this.props.getWeekUsd} USD/week {this.props.getWeekEth} ETH/week</li>
-                <li>{this.props.getMonthUsd} USD/month {this.props.getMonthEth} ETH/month</li>
-            </ul>
+            <div id="projections">
+              <ul>
+                  <li>{this.props.getHourUsd.toFixed(2)} USD/hour</li>   <li>{this.props.getHourEth.toFixed(2)} ETH/hour</li>
+              </ul>
+              <ul>
+                  <li>{this.props.getDayUsd.toFixed(2)} USD/day</li> 
+                  <li>{this.props.getDayEth.toFixed(2)} ETH/day</li>
+              </ul>
+              <ul>
+                  <li>{this.props.getWeekUsd.toFixed(2)} USD/week</li>   <li>{this.props.getWeekEth.toFixed(2)} ETH/week</li>
+              </ul>
+              <ul>
+                  <li>{this.props.getMonthUsd.toFixed(2)} USD/month</li>   <li>{this.props.getMonthEth.toFixed(2)} ETH/month</li>
+              </ul>
+            </div>
         )
     }
 }

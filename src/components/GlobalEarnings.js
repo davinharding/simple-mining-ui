@@ -7,7 +7,7 @@ class GlobalEarnings extends Component {
     render() {
         return (
             <div>
-                {this.props.getGlobalEarnings} ETH
+                {this.props.getGlobalEarnings.toFixed(2)} ETH
             </div>
         )
     }
