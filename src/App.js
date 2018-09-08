@@ -5,6 +5,9 @@ import TextField from '@material-ui/core/TextField';
 import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
 import './css/App.css'
+import LoadingWheel from './components/LoadingWheel';
+import { render } from 'react-dom';
+
 
 
 const styles = theme => ({
@@ -22,7 +25,7 @@ const styles = theme => ({
     },
   });
 
-  
+
 
   class App extends Component {
     constructor() {
@@ -36,8 +39,8 @@ const styles = theme => ({
           week: {dollars: 0, coins: 0},
           month: {dollars: 0, coins: 0}
           },
-        tabDisplay: "none"
-    
+        tabDisplay: "none",
+        loading: false
     };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,29 +52,32 @@ const styles = theme => ({
         return total
       }
     }
-    
+
     async handleSubmit(event) {
       event.preventDefault();
+       this.setState({loading: true}, async () => {
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
           address = address.data.data;
-        this.setState({address}); 
+        this.setState({address: address});
       let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${this.state.value}`);
           address2 = address2.data.data;
-        this.setState({address2});
+        this.setState({address2: address2});
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
         projection = projection.data.data;
-        this.setState({projection});
+        this.setState({loading:false,projection: projection});
         let tabDisplay;
         this.setState({tabDisplay: 'flex'})
         console.log(this.state.tabDisplay)
         console.log(address)
+      })
     }
-    
+
     handleChange(event) {
       this.setState({value: event.target.value});
     }
 
-    render() {     
+    render() {
+      const {address, address2, projection, loading} = this.state;
         return (
           <div>
             {console.log(this.state.tabDisplay)}
@@ -88,12 +94,14 @@ const styles = theme => ({
                         onChange={this.handleChange}
                       />
             </form>
-            <MiningMenu 
+                    <i className="fa fa-spinner fa-spin"></i>
+             {loading ? <LoadingWheel type="Puff" color="#00BFFF" height="100" width="100" /> : ''}
+            <MiningMenu
               className="hidden"
               display={this.state.tabDisplay}
-              getHashrate={this.state.address.avgHashrate.h6} 
-              getPoolBalance={this.state.address.balance} 
-              getGlobalEarnings={this.state.address2.sum()} 
+              getHashrate={this.state.address.avgHashrate.h6}
+              getPoolBalance={this.state.address.balance}
+              getGlobalEarnings={this.state.address2.sum()}
               getHourUsd={this.state.projection.hour.dollars}getHourEth={this.state.projection.hour.coins}
               getDayUsd={this.state.projection.day.dollars}
               getDayEth={this.state.projection.day.coins}
@@ -101,10 +109,10 @@ const styles = theme => ({
               getWeekEth={this.state.projection.week.coins}
               getMonthUsd={this.state.projection.month.dollars}
               getMonthEth={this.state.projection.month.coins}
-            /> 
+            />
             </div>
             <TopMiners />
           </div>
         )}}
-  
+
   export default withStyles(styles)(App);
