@@ -39,8 +39,9 @@ class TopMiners extends Component {
 
     render() {
       return (
+        <div>
         <Paper id="main" >
-        <Table >
+          <Table >
             <TableHead>
             <TableRow>
                 <TableCell>Rank</TableCell>
@@ -67,8 +68,9 @@ class TopMiners extends Component {
                         })
                     }
             </TableBody>
-        </Table>
+          </Table>
         </Paper>
+        </div>
   );
 }
 }

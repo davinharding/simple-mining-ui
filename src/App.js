@@ -103,6 +103,7 @@ const styles = theme => ({
               getMonthEth={this.state.projection.month.coins}
             /> 
             </div>
+            <h2>Top Miners</h2>
             <TopMiners />
           </div>
         )}}
