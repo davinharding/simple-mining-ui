@@ -3,13 +3,20 @@ h2 {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-.MuiTableCell-root-37.MuiTableCell-head-38.MuiTableCell-numeric-41 {
+#hashrate {
     text-align: left;
 }
 
 #main {
-    margin-left: 18%;
-    margin-right: 18%;
+    /* margin-left: 18%;
+    margin-right: 18%; */
     display: flex;
     justify-content: center;
 }
+
+/* @media only screen 
+and (max-device-width: 620px) {
+    #main {
+        margin-left: 1%;
+        margin-right: 1%;
+} } */

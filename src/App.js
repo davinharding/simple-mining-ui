@@ -40,7 +40,9 @@ const styles = theme => ({
           month: {dollars: 0, coins: 0}
           },
         tabDisplay: "none",
+        runCheck: null,
         loading: false
+
     };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,18 +59,17 @@ const styles = theme => ({
       event.preventDefault();
        this.setState({loading: true}, async () => {
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
-          address = address.data.data;
-        this.setState({address: address});
+      address = address.data.data;
+      let runCheck = address.hashrate;
+      this.setState({runCheck})
+      this.setState({address}); 
       let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${this.state.value}`);
-          address2 = address2.data.data;
+      address2 = address2.data.data;
         this.setState({address2: address2});
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
-        projection = projection.data.data;
+      projection = projection.data.data;
         this.setState({loading:false,projection: projection});
-        let tabDisplay;
-        this.setState({tabDisplay: 'flex'})
-        console.log(this.state.tabDisplay)
-        console.log(address)
+      this.setState({tabDisplay: 'flex'})
       })
     }
 
@@ -80,7 +81,7 @@ const styles = theme => ({
       const {address, address2, projection, loading} = this.state;
         return (
           <div>
-            {console.log(this.state.tabDisplay)}
+            {/* {console.log(this.state.tabDisplay)} */}
             <div className="center">
             <div className="center">Mining Dashboard</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
@@ -99,10 +100,13 @@ const styles = theme => ({
             <MiningMenu
               className="hidden"
               display={this.state.tabDisplay}
-              getHashrate={this.state.address.avgHashrate.h6}
-              getPoolBalance={this.state.address.balance}
-              getGlobalEarnings={this.state.address2.sum()}
-              getHourUsd={this.state.projection.hour.dollars}getHourEth={this.state.projection.hour.coins}
+              getHashrate={this.state.address.avgHashrate.h6} 
+              runCheck={this.state.runCheck}
+              getPoolBalance={this.state.address.balance} 
+              getGlobalEarnings={this.state.address2.sum()} 
+              getHourUsd={this.state.projection.hour.dollars}
+              getHourEth={this.state.projection.hour.coins}
+
               getDayUsd={this.state.projection.day.dollars}
               getDayEth={this.state.projection.day.coins}
               getWeekUsd={this.state.projection.week.dollars}
@@ -111,6 +115,7 @@ const styles = theme => ({
               getMonthEth={this.state.projection.month.coins}
             />
             </div>
+            <h2>Top Miners</h2>
             <TopMiners />
           </div>
         )}}
