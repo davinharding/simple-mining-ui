@@ -46,7 +46,7 @@ class TopMiners extends Component {
             <TableRow>
                 <TableCell>Rank</TableCell>
                 <TableCell>Address</TableCell>
-                <TableCell numeric>Hashrate</TableCell>
+                <TableCell id="hashrate" numeric>Hashrate</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
