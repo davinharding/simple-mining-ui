@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'react-emotion';
-import { ClipLoader } from 'react-spinners';
+import { ClimbingBoxLoader } from 'react-spinners';
 
 
 const override = css`
@@ -19,10 +19,10 @@ class LoadingWheel extends React.Component {
   render() {
     return (
       <div className='sweet-loading'>
-        <ClipLoader
+        <ClimbingBoxLoader
           className={override}
           sizeUnit={"px"}
-          size={150}
+          size={30}
           color={'#123abc'}
           loading={this.state.loading}
         />
