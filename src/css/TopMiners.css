@@ -10,4 +10,6 @@ h2 {
 #main {
     margin-left: 18%;
     margin-right: 18%;
+    display: flex;
+    justify-content: center;
 }

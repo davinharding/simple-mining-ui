@@ -54,7 +54,7 @@ class MiningMenu extends Component {
     const { classes, theme } = this.props;
 
     return (
-      <div className="menu" >
+      <div className="menu" style={{display: `${this.props.display}`}} >
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs

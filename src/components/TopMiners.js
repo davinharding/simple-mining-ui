@@ -40,7 +40,6 @@ class TopMiners extends Component {
     render() {
       return (
         <Paper id="main" >
-        <h2>Top Miners</h2>
         <Table >
             <TableHead>
             <TableRow>
