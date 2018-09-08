@@ -8,10 +8,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import '../css/TopMiners.css';
+import CurrentHashrate from './CurrentHashrate';
+
 
 const styles = theme => ({
   root: {
-    width: '100%',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
   },
@@ -31,15 +32,13 @@ class TopMiners extends Component {
 
         let miners = await axios.get('https://api.nanopool.org/v1/eth/pool/topminers');
         miners =  miners.data.data
-        console.log(miners)
-        this.setState({miners})  
+        this.setState({miners})
 
-    }  
-    
+    }
+
 
     render() {
-
-  return (
+      return (
         <Paper id="main" >
         <h2>Top Miners</h2>
         <Table >
@@ -59,14 +58,14 @@ class TopMiners extends Component {
                             }    
                             i++;
                             return (   
-                                    <TableRow id="row" >   
+                                    <TableRow id="row" onClick={clicked}>   
                                         <TableCell>{i}</TableCell> 
                                         <TableCell>{miner.address}</TableCell>
                                         <TableCell>{miner.hashrate}</TableCell>
                                     </TableRow>               
                             )
                         })
-                    }
+                        }
             </TableBody>
         </Table>
         </Paper>

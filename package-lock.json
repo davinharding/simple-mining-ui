@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
-import Banner from './components/Banner';
 
 
 const styles = theme => ({
@@ -29,13 +28,8 @@ const styles = theme => ({
       super();
       this.state = {
         address: {avgHashrate: {h6: null}},
-        address2: [{amount: null}],
-        projection: {
-          hour: {dollars: null, coins: null},
-          day: {dollars: null, coins: null},
-          week: {dollars: null, coins: null},
-          month: {dollars: null, coins: null}
-      }};
+        address2: [{amount: null}]
+      };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       Array.prototype.sum = function () {
@@ -58,6 +52,7 @@ const styles = theme => ({
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
         projection = projection.data.data;
         this.setState({projection});
+        // console.log(projection)
     }
 
     handleChange(event) {
@@ -66,9 +61,9 @@ const styles = theme => ({
 
     render() {     
         return (
-          <div id="topMain">
-            <Banner />
-            <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off" id="searchBar">
+          <div>
+            <div>Crypto Dashboard</div>
+            <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
                         label="Search by Address"
@@ -83,17 +78,12 @@ const styles = theme => ({
               getHashrate={this.state.address.avgHashrate.h6} 
               getPoolBalance={this.state.address.balance} 
               getGlobalEarnings={this.state.address2.sum()} 
-              getHourUsd={this.state.projection.hour.dollars}
-              getHourEth={this.state.projection.hour.coins}
-              getDayUsd={this.state.projection.day.dollars}
-              getDayEth={this.state.projection.day.coins}
-              getWeekUsd={this.state.projection.week.dollars}
-              getWeekEth={this.state.projection.week.coins}
-              getMonthUsd={this.state.projection.month.dollars}
-              getMonthEth={this.state.projection.month.coins}
+              // getProjections={this.state.projection} 
             /> 
             <TopMiners />
           </div>
         )}}
+
+
   
   export default withStyles(styles)(App);
