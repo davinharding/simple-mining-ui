@@ -10,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import '../css/TopMiners.css';
 import CurrentHashrate from './CurrentHashrate';
 
-
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 3,
@@ -63,11 +62,13 @@ class TopMiners extends Component {
                                         <TableCell>{miner.address}</TableCell>
                                         <TableCell>{miner.hashrate}</TableCell>
                                     </TableRow>               
+
                             )
                         })
                         }
             </TableBody>
         </Table>
+        <CurrentHashrate/>
         </Paper>
   );
 }

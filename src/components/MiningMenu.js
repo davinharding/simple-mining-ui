@@ -28,7 +28,7 @@ TabContainer.propTypes = {
 const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 800,
+    width: 500,
   },
 });
 
@@ -52,7 +52,7 @@ class MiningMenu extends Component {
     const { classes, theme } = this.props;
 
     return (
-      <div id="MiningMenu" className={classes.root}>
+      <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
             value={this.state.value}
@@ -82,16 +82,7 @@ class MiningMenu extends Component {
             <GlobalEarnings getGlobalEarnings={this.props.getGlobalEarnings} />
           </TabContainer>
           <TabContainer dir={theme.direction}>
-            <Projections 
-            getHourUsd={this.props.getHourUsd}
-            getHourEth={this.props.getHourEth}
-            getDayUsd={this.props.getDayUsd}
-            getDayEth={this.props.getDayEth}
-            getWeekUsd={this.props.getWeekUsd}
-            getWeekEth={this.props.getWeekEth}
-            getMonthUsd={this.props.getMonthUsd}
-            getMonthEth={this.props.getMonthEth}
-             />
+            <Projections getProjections={this.props.getProjections} />
           </TabContainer>
         </SwipeableViews>
       </div>
