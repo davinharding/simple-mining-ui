@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import NumberFormat from 'react-number-format';
 import '../css/Projections.css';
 
 class Projections extends Component {
@@ -10,21 +11,28 @@ class Projections extends Component {
             <div id="projections">
             <div className="projLists">
               <ul>
-                  <li>{this.props.getHourUsd.toFixed(2)} USD/hour</li>   <li>{this.props.getHourEth.toFixed(2)} ETH/hour</li>
+                  <li><NumberFormat value={this.props.getHourUsd.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /> USD/hr</li>   
+                  <li>{this.props.getHourEth.toFixed(2)} ETH/hr</li>
               </ul>
               </div>
               <div className="projLists">
               <ul>
-                  <li>{this.props.getDayUsd.toFixed(2)} USD/day</li> 
+                  <li><NumberFormat value={this.props.getDayUsd.toFixed(2) } displayType={'text'} thousandSeparator={true} prefix={'$'} /> USD/day</li> 
                   <li>{this.props.getDayEth.toFixed(2)} ETH/day</li>
               </ul>
               </div>
+              <div className="projLists">
               <ul>
-                  <li>{this.props.getWeekUsd.toFixed(2)} USD/week</li>   <li>{this.props.getWeekEth.toFixed(2)} ETH/week</li>
+                  <li><NumberFormat value={this.props.getWeekUsd.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /> USD/wk</li>   
+                  <li>{this.props.getWeekEth.toFixed(2)} ETH/wk</li>
               </ul>
+              </div>
+              <div className="projLists">
               <ul>
-                  <li>{this.props.getMonthUsd.toFixed(2)} USD/month</li>   <li>{this.props.getMonthEth.toFixed(2)} ETH/month</li>
+                  <li><NumberFormat value={this.props.getMonthUsd.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={'$'} /> USD/mth</li>   
+                  <li><NumberFormat value={this.props.getMonthEth.toFixed(2)} displayType={'text'} thousandSeparator={true} prefix={''} /> ETH/mth</li>
               </ul>
+              </div>
             </div>
         )
     }

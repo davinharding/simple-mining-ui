@@ -30,16 +30,18 @@ const styles = theme => ({
       this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-    async handleSubmit(event) {
-      event.preventDefault();
-      let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
-          address = address.data.data
-        this.setState({address}); 
-    }
+//I don't think we need the commented code below
 
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
+    // // async handleSubmit(event) {
+    // //   event.preventDefault();
+    // //   let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
+    // //       address = address.data.data
+    // //     this.setState({address}); 
+    // // }
+
+    // handleChange(event) {
+    //   this.setState({value: event.target.value});
+    // }
 
     render() {
         return (

@@ -1,0 +1,8 @@
+.data {
+    font-size: 5em;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4em;
+}
+

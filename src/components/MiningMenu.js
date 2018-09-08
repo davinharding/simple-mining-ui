@@ -65,7 +65,7 @@ class MiningMenu extends Component {
             fullWidth
           >
             <Tab label="Current Hashrate" />
-            <Tab label="Balance Pool" />
+            <Tab label="Pool Balance" />
             <Tab label="Global Earnings" />
             <Tab label="Projections"/>
           </Tabs>
@@ -76,7 +76,9 @@ class MiningMenu extends Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <CurrentHashrate getHashrate={this.props.getHashrate} />
+            <CurrentHashrate 
+            getHashrate={this.props.getHashrate}
+            runCheck={this.props.runCheck} />
           </TabContainer>
           <TabContainer dir={theme.direction}>
             <PoolBalance getPoolBalance={this.props.getPoolBalance} />
