@@ -80,7 +80,6 @@ const styles = theme => ({
       const {loading} = this.state;
         return (
           <div>
-            {/* {console.log(this.state.tabDisplay)} */}
             <div className="center">
             <div className="center">Mining Dashboard</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
@@ -94,7 +93,6 @@ const styles = theme => ({
                         onChange={this.handleChange}
                       />
             </form>
-                    <i className="fa fa-spinner fa-spin"></i>
              {loading ? <LoadingWheel type="Puff" color="#00BFFF" height="100" width="100" /> : ''}
             <MiningMenu
               className="hidden"
