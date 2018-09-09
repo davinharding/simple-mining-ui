@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import NumberFormat from 'react-number-format';
 import '../css/TopMiners.css';
 
 const styles = theme => ({
@@ -56,7 +57,7 @@ class TopMiners extends Component {
                                     <TableRow id="row" >   
                                         <TableCell>{i}</TableCell> 
                                         <TableCell>{miner.address}</TableCell>
-                                        <TableCell>{miner.hashrate}</TableCell>
+                                        <TableCell><NumberFormat value={miner.hashrate} displayType={'text'} thousandSeparator={true} prefix={''} /> Mh/s</TableCell>
                                     </TableRow>               
 
                             )

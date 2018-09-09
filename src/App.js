@@ -6,6 +6,8 @@ import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
 import './css/App.css'
 import LoadingWheel from './components/LoadingWheel';
+import Modal from '@material-ui/core/Modal';
+
 
 
 

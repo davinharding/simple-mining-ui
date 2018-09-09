@@ -18,7 +18,7 @@ div.projLists {
 }
 
 .projLists {
-    font-size: 2em;
+    font-size: 1.4em;
     display: flex;
     justify-content: center;
 }
