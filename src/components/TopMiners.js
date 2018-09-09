@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import '../css/TopMiners.css';
-import CurrentHashrate from './CurrentHashrate';
 
 const styles = theme => ({
   root: {
@@ -43,7 +42,7 @@ class TopMiners extends Component {
         <Paper id="main" >
           <Table >
             <TableHead>
-            <TableRow>
+            <TableRow >
                 <TableCell>Rank</TableCell>
                 <TableCell>Address</TableCell>
                 <TableCell id="hashrate" numeric>Hashrate</TableCell>
@@ -52,10 +51,6 @@ class TopMiners extends Component {
             <TableBody>
                     {
                         this.state.miners.map((miner, i) => {
-                            function clicked(){
-                                console.log(miner.address);
-                                const minerAddress = miner.address; 
-                            }    
                             i++;
                             return (   
                                     <TableRow id="row" >   
