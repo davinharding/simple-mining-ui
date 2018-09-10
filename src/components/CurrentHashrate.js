@@ -10,7 +10,7 @@ class CurrentHashrate extends Component {
     render() {
         return (
             <div>
-              <div className="data">  
+              <div id="data">  
                 <NumberFormat value={this.props.getHashrate} displayType={'text'} thousandSeparator={true}   prefix={''} /> Mh/s 
               </div>
               <div className='emoji'>
