@@ -7,8 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import NumberFormat from 'react-number-format';
 import '../css/TopMiners.css';
-import CurrentHashrate from './CurrentHashrate';
 
 const styles = theme => ({
   root: {
@@ -43,7 +43,7 @@ class TopMiners extends Component {
         <Paper id="main" >
           <Table >
             <TableHead>
-            <TableRow>
+            <TableRow >
                 <TableCell>Rank</TableCell>
                 <TableCell>Address</TableCell>
                 <TableCell id="hashrate" numeric>Hashrate</TableCell>
@@ -52,16 +52,12 @@ class TopMiners extends Component {
             <TableBody>
                     {
                         this.state.miners.map((miner, i) => {
-                            function clicked(){
-                                console.log(miner.address);
-                                const minerAddress = miner.address; 
-                            }    
                             i++;
                             return (   
                                     <TableRow id="row" >   
                                         <TableCell>{i}</TableCell> 
-                                        <TableCell>{miner.address}</TableCell>
-                                        <TableCell>{miner.hashrate}</TableCell>
+                                        <TableCell><a href="">{miner.address}</a></TableCell>
+                                        <TableCell><NumberFormat value={miner.hashrate} displayType={'text'} thousandSeparator={true} prefix={''} /> Mh/s</TableCell>
                                     </TableRow>               
 
                             )
