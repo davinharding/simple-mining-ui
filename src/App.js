@@ -57,12 +57,13 @@ const styles = theme => ({
 
     async handleSubmit(event) {
       event.preventDefault();
+      this.setState({tabDisplay: "none"})
        this.setState({loading: true}, async () => {
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
       address = address.data.data;
       let runCheck = address.hashrate;
       this.setState({runCheck})
-      this.setState({address}); 
+      this.setState({address});
       let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${this.state.value}`);
       address2 = address2.data.data;
         this.setState({address2: address2});
@@ -100,10 +101,10 @@ const styles = theme => ({
             <MiningMenu
               className="hidden"
               display={this.state.tabDisplay}
-              getHashrate={this.state.address.avgHashrate.h6} 
+              getHashrate={this.state.address.avgHashrate.h6}
               runCheck={this.state.runCheck}
-              getPoolBalance={this.state.address.balance} 
-              getGlobalEarnings={this.state.address2.sum()} 
+              getPoolBalance={this.state.address.balance}
+              getGlobalEarnings={this.state.address2.sum()}
               getHourUsd={this.state.projection.hour.dollars}
               getHourEth={this.state.projection.hour.coins}
 
