@@ -3,9 +3,6 @@ import NumberFormat from 'react-number-format';
 import '../css/GlobalEarnings.css';
 
 class GlobalEarnings extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className="earningsData">
