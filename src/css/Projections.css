@@ -1,20 +1,20 @@
+#projections {
+    display: block;
+    text-decoration: none;
+}
+
 #projections ul{
     display: inline-block;
-    /* width: 110px; */
 }
 
 ul li{
-    margin: auto;
-    display: flex;
-    justify-content: center;
+    /* margin: auto; */
+    display: line;
     list-style-type: none;
-    padding: .5em;
 }
 
 div.projLists {
     display: inline;
-    /* display: flex; */
-    /* justify-content: center; */
 }
 
 .projLists {

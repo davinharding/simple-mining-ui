@@ -6,10 +6,6 @@ import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
 import './css/App.css'
 import LoadingWheel from './components/LoadingWheel';
-import Modal from '@material-ui/core/Modal';
-
-
-
 
 const styles = theme => ({
     container: {
@@ -42,7 +38,8 @@ const styles = theme => ({
           },
         tabDisplay: "none",
         runCheck: null,
-        loading: false
+        loading: false,
+        value: ""
 
     };
       this.handleChange = this.handleChange.bind(this);
@@ -56,16 +53,17 @@ const styles = theme => ({
       }
     }
 
-    async handleSubmit(event) {
+    async handleSubmit(event, accountAddress) {
       event.preventDefault();
-      this.setState({tabDisplay: "none"})
+      this.setState({tabDisplay: "none"});
+      this.setState({value: accountAddress});
        this.setState({loading: true}, async () => {
-      let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${this.state.value}`);
+      let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${accountAddress}`);
       address = address.data.data;
       let runCheck = address.hashrate;
       this.setState({runCheck})
       this.setState({address});
-      let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${this.state.value}`);
+      let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${accountAddress}`);
       address2 = address2.data.data;
         this.setState({address2: address2});
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
@@ -84,8 +82,8 @@ const styles = theme => ({
         return (
           <div>
             <div className="center">
-            <div className="center">Simple Mining UI</div>
-            <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
+            <div className="center">Miner Status</div>
+            <form onSubmit={(ev) => this.handleSubmit(ev, this.state.value)} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
                         label="Search by Address"
@@ -116,7 +114,7 @@ const styles = theme => ({
             />
             </div>
             <h2>Top Miners</h2>
-            <TopMiners />
+            <TopMiners handleSubmit={this.handleSubmit}/>
           </div>
         )}}
 
