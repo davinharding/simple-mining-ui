@@ -22,7 +22,7 @@ class LoadingWheel extends React.Component {
         <ClimbingBoxLoader	
           className={override}
           sizeUnit={"px"}
-          size={30}
+          size={25}
           color={'#123abc'}
           loading={this.state.loading}
         />

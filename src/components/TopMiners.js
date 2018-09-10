@@ -56,7 +56,7 @@ class TopMiners extends Component {
                             return (   
                                     <TableRow id="row" >   
                                         <TableCell>{i}</TableCell> 
-                                        <TableCell>{miner.address}</TableCell>
+                                        <TableCell><a href="">{miner.address}</a></TableCell>
                                         <TableCell><NumberFormat value={miner.hashrate} displayType={'text'} thousandSeparator={true} prefix={''} /> Mh/s</TableCell>
                                     </TableRow>               
 
