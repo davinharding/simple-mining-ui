@@ -23,7 +23,7 @@ class LoadingWheel extends React.Component {
           className={override}
           sizeUnit={"px"}
           size={25}
-          color={'#123abc'}
+          color={'#3f51b5'}
           loading={this.state.loading}
         />
       </div>

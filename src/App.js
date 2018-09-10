@@ -83,7 +83,7 @@ const styles = theme => ({
         return (
           <div>
             <div className="center">
-            <div className="center">Mining Dashboard</div>
+            <div className="center">Simple Mining UI</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
