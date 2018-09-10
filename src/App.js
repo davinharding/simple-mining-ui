@@ -6,7 +6,8 @@ import TopMiners from './components/TopMiners';
 import MiningMenu from './components/MiningMenu';
 import './css/App.css'
 import LoadingWheel from './components/LoadingWheel';
-import { render } from 'react-dom';
+import Modal from '@material-ui/core/Modal';
+
 
 
 
@@ -78,12 +79,11 @@ const styles = theme => ({
     }
 
     render() {
-      const {address, address2, projection, loading} = this.state;
+      const {loading} = this.state;
         return (
           <div>
-            {/* {console.log(this.state.tabDisplay)} */}
             <div className="center">
-            <div className="center">Mining Dashboard</div>
+            <div className="center">Simple Mining UI</div>
             <form onSubmit={this.handleSubmit} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
@@ -95,7 +95,6 @@ const styles = theme => ({
                         onChange={this.handleChange}
                       />
             </form>
-                    <i className="fa fa-spinner fa-spin"></i>
              {loading ? <LoadingWheel type="Puff" color="#00BFFF" height="100" width="100" /> : ''}
             <MiningMenu
               className="hidden"

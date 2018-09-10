@@ -3,9 +3,6 @@ import NumberFormat from 'react-number-format';
 import '../css/Projections.css';
 
 class Projections extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div id="projections">
