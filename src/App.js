@@ -58,7 +58,7 @@ const styles = theme => ({
       event.preventDefault();
       this.setState({tabDisplay: "none"});
       this.setState({value: accountAddress});
-       this.setState({loading: true}, async () => {
+      this.setState({loading: true}, async () => {
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${accountAddress}`);
       address = address.data.data;
       let runCheck = address.hashrate;
