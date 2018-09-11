@@ -22,11 +22,6 @@
   },
   "main": "index.js",
   "repository": "https://github.com/davinharding/simple-mining-ui.git",
-  "author": "Davin Harding <davinlharding@gmail.com>",
   "license": "MIT",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "bugs": {
-    "url": "https://github.com/davinharding/simple-mining-ui/issues"
-  },
-  "homepage": "https://github.com/davinharding/simple-mining-ui#readme"
+  "proxy": "http://localhost:5000"
 }
