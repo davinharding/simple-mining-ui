@@ -90,7 +90,7 @@ const styles = theme => ({
         return (
           <div>
             <div className="center">
-            <div className="center">Miner Dashboard</div>
+            <div className="center"><img src="https://i.imgur.com/XngTdrx.png" alt="Mining" height="55" width="55"/> Miner Dashboard</div>
             <form onSubmit={(ev) => this.handleSubmit(ev, this.state.value)} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
@@ -123,6 +123,7 @@ const styles = theme => ({
             </div>
             <h2>Top Miners</h2>
             <TopMiners handleSubmit={this.handleSubmit}/>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/ddara" title="dDara">dDara</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
           </div>
         )}}
 
