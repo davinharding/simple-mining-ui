@@ -26,6 +26,7 @@ class LoadingWheel extends React.Component {
           color={'#3f51b5'}
           loading={this.state.loading}
         />
+        <div>Loading...</div>
       </div>
     )
   }
