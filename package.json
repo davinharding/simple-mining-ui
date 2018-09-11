@@ -10,6 +10,7 @@
     "react-loader-spinner": "^2.0.5",
     "react-number-format": "^3.5.2",
     "react-scripts": "1.1.5",
+    "react-spinner": "^0.2.7",
     "react-spinners": "^0.4.5",
     "react-swipeable-views": "^0.12.17"
   },
@@ -23,4 +24,9 @@
   "repository": "https://github.com/davinharding/simple-mining-ui.git",
   "author": "Davin Harding <davinlharding@gmail.com>",
   "license": "MIT"
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "bugs": {
+    "url": "https://github.com/davinharding/simple-mining-ui/issues"
+  },
+  "homepage": "https://github.com/davinharding/simple-mining-ui#readme"
 }
