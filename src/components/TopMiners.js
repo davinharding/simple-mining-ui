@@ -56,7 +56,7 @@ class TopMiners extends Component {
                             return (   
                                     <TableRow id="row" key={`miner${i}`} >   
                                         <TableCell>{i}</TableCell> 
-                                        <TableCell><span onClick={(ev) => {this.props.handleSubmit(ev, miner.address)}}>{miner.address}</span></TableCell>
+                                        <TableCell><span onClick={(ev) => {this.props.handleSubmit(ev, miner.address)}}>{miner.address.substring(0,10)}[...]</span></TableCell>
                                         <TableCell><NumberFormat value={miner.hashrate} displayType={'text'} thousandSeparator={true} prefix={''} /> Mh/s</TableCell>
                                     </TableRow>               
 
