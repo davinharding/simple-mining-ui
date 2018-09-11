@@ -1,0 +1,32 @@
+{
+  "name": "simple-mining-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.0.2",
+    "axios": "^0.18.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-loader-spinner": "^2.0.5",
+    "react-number-format": "^3.5.2",
+    "react-scripts": "1.1.5",
+    "react-spinner": "^0.2.7",
+    "react-spinners": "^0.4.5",
+    "react-swipeable-views": "^0.12.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/davinharding/simple-mining-ui.git",
+  "author": "Davin Harding <davinlharding@gmail.com>",
+  "license": "MIT",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "bugs": {
+    "url": "https://github.com/davinharding/simple-mining-ui/issues"
+  },
+  "homepage": "https://github.com/davinharding/simple-mining-ui#readme"
+}
