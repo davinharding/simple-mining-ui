@@ -10,6 +10,7 @@
     "react-loader-spinner": "^2.0.5",
     "react-number-format": "^3.5.2",
     "react-scripts": "1.1.5",
+    "react-spinner": "^0.2.7",
     "react-spinners": "^0.4.5",
     "react-swipeable-views": "^0.12.17"
   },
@@ -18,5 +19,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davinharding/simple-mining-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davinharding/simple-mining-ui/issues"
+  },
+  "homepage": "https://github.com/davinharding/simple-mining-ui#readme"
 }

@@ -53,12 +53,12 @@ class TopMiners extends Component {
                     {
                         this.state.miners.map((miner, i) => {
                             i++;
-                            return (   
-                                    <TableRow id="row" key={`miner${i}`} >   
-                                        <TableCell>{i}</TableCell> 
-                                        <TableCell><span onClick={(ev) => {this.props.handleSubmit(ev, miner.address)}}>{miner.address}</span></TableCell>
+                            return (
+                                    <TableRow id="row" key={`miner${i}`} >
+                                        <TableCell>{i}</TableCell>
+                                        <TableCell><span id='Addresses' onClick={(ev) => {this.props.handleSubmit(ev, miner.address)}}>{miner.address}</span></TableCell>
                                         <TableCell><NumberFormat value={miner.hashrate} displayType={'text'} thousandSeparator={true} prefix={''} /> Mh/s</TableCell>
-                                    </TableRow>               
+                                    </TableRow>
 
                             )
                         })

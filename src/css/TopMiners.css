@@ -14,7 +14,12 @@ h2 {
     justify-content: center;
 }
 
-/* @media only screen 
+#Addresses:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+/* @media only screen
 and (max-device-width: 620px) {
     #main {
         margin-left: 1%;
