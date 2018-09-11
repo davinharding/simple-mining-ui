@@ -11,10 +11,10 @@ class CurrentHashrate extends Component {
         return (
             <div>
               <div id="data">  
-                <NumberFormat value={this.props.getHashrate} displayType={'text'} thousandSeparator={true}   prefix={''} /> Mh/s 
+                <NumberFormat value={this.props.getHashrate} displayType={'text'} thousandSeparator={true}   prefix={''} /> Mh/s (6h Average)
               </div>
               <div className='emoji'>
-                Status: {this.statusCheck()}
+                Run Status: {this.statusCheck()} 
               </div>
             </div>
         )

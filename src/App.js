@@ -36,6 +36,7 @@ const styles = theme => ({
           week: {dollars: 0, coins: 0},
           month: {dollars: 0, coins: 0}
           },
+        payout: {date: 0},
         tabDisplay: "none",
         runCheck: null,
         loading: false,
@@ -65,10 +66,17 @@ const styles = theme => ({
       this.setState({address});
       let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${accountAddress}`);
       address2 = address2.data.data;
-        this.setState({address2: address2});
+      this.setState({address2: address2});
       let projection = await axios.get(`https://api.nanopool.org/v1/eth/approximated_earnings/${this.state.address.avgHashrate.h6}`);
       projection = projection.data.data;
-        this.setState({loading:false,projection: projection});
+      this.setState({loading:false,projection: projection});
+
+//Below commented out is api call for pool balance threshold but I was having some issues with it
+
+      // let payout = await axios.get(`https://api.nanopool.org/v1/eth/usersettings/${accountAddress}`);
+      // payout = payout.data.data.payout;
+      // this.setState({payout: payout})
+      // console.log(payout);
       this.setState({tabDisplay: 'flex'})
       })
     }
@@ -82,7 +90,7 @@ const styles = theme => ({
         return (
           <div>
             <div className="center">
-            <div className="center">Miner Status</div>
+            <div className="center">Miner Dashboard</div>
             <form onSubmit={(ev) => this.handleSubmit(ev, this.state.value)} className="container" noValidate autoComplete="off">
               <TextField
                         id="search"
