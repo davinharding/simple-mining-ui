@@ -24,3 +24,11 @@ h2 {
 .hidden {
     display: none;
 }
+
+#input-group {
+    display: inline;
+}
+
+#credits {
+    font-size: .3em;
+}
