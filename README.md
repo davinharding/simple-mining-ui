@@ -3,7 +3,7 @@
 *Intuitive and accesible crytocurrency miner status checker*
 
 ## Features
-* **Miner Search* fetches miner data using anonymous public key
+* **Miner Search** fetches miner data using anonymous public key
 * **React Loader Animation** intuitively guides the user while data is being fetched
 * **Swipable Tabs** for each relevant section 
 * **List of Top Miners** that links to top miner data for reference
