@@ -62,7 +62,7 @@ const styles = theme => ({
       let address = await axios.get(`https://api.nanopool.org/v1/eth/user/${accountAddress}`);
       address = address.data.data;
       let runCheck = address.hashrate;
-      this.setState({runCheck})
+      this.setState({runCheck});
       this.setState({address});
       let address2 = await axios.get(`https://api.nanopool.org/v1/eth/payments/${accountAddress}`);
       address2 = address2.data.data;
@@ -84,7 +84,7 @@ const styles = theme => ({
     handleChange(event) {
       this.setState({value: event.target.value});
     }
-
+    
     render() {
       const {loading} = this.state;
         return (
